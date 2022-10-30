@@ -1,0 +1,14 @@
+{
+  "name": "parser-banca-dati-polizia-stato-2022",
+  "version": "1.0.0",
+  "description": "Estrae le domande contenute nella banca data in un JSON ordinato",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Vito Paparella Santorsola",
+  "license": "ISC",
+  "dependencies": {
+    "pdf-parse": "~1.1.1"
+  }
+}
