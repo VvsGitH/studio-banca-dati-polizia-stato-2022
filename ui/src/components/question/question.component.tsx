@@ -54,7 +54,7 @@ export default function QuestionComponent(props: QuestionComponentProps): JSX.El
           onAnswer={handleAnswerSelection}
         />
       </FormControl>
-      <Button variant="contained" onClick={handleConfirm}>
+      <Button variant="contained" onClick={handleConfirm} disabled={!answer}>
         Conferma Risposta
       </Button>
       {confirmed ? <ConfirmMessage isSuccess={isCorrect} correctAnswer={correctAnswer} /> : null}
