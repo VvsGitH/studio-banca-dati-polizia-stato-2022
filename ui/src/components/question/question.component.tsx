@@ -1,7 +1,6 @@
 import { useCallback, useLayoutEffect, useState } from "react";
 import { Answer, Question } from "../../models";
 
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
@@ -20,7 +19,10 @@ export default function QuestionComponent(props: QuestionComponentProps): JSX.El
   const [isCorrect, setIsCorrect] = useState<boolean>(false);
   const [confirmed, setConfirmed] = useState<boolean>(false);
 
+  // Reset state on question change
   useLayoutEffect(() => {
+    setAnswer("");
+    setIsCorrect(false);
     setConfirmed(false);
   }, [props.question?.question]);
 
@@ -34,7 +36,7 @@ export default function QuestionComponent(props: QuestionComponentProps): JSX.El
   };
 
   const labelId: string = `question-${props.id}`;
-  const correctAnswer: number = props.question?.answers.findIndex(answ => answ.isCorrect) ?? -1;
+  const correctAnswer: number = props.question?.answers.findIndex((answ) => answ.isCorrect) ?? -1;
 
   return (
     <Container
