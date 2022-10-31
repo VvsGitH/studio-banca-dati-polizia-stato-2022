@@ -83,7 +83,7 @@ export default function RandomizerComponent(): JSX.Element {
             </Grid>
           </Fieldset>
           <br />
-          <Fieldset legend="Domanda corrente">
+          <Fieldset legend="Domanda selezionata">
             <QuestionComponent id={question.questionId} question={question.question} />
           </Fieldset>
         </Container>

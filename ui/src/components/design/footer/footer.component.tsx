@@ -16,7 +16,7 @@ export default function Footer(): JSX.Element {
             textAlign="right"
             sx={{ color: theme.palette.primary.contrastText }}
           >
-            Made By Vito With Love ❤
+            Made by Vito with Love ❤
           </Typography>
         </Box>
       </Container>
