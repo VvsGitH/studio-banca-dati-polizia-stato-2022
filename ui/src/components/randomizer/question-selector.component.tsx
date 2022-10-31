@@ -1,14 +1,6 @@
-import React, { useMemo } from "react";
-import {
-  Autocomplete,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-  SelectChangeEvent,
-  TextField,
-} from "@mui/material";
-import { Data } from "../../constants";
+import React, { useContext, useMemo } from "react";
+import { Autocomplete, TextField } from "@mui/material";
+import { DataBankContext } from "../../context/data-bank.context";
 
 interface QuestionSelectorComponentProps {
   section: number;
@@ -22,18 +14,20 @@ interface AutocompleteOption {
 }
 
 export default function QuestionSelectorComponent(props: QuestionSelectorComponentProps): JSX.Element {
+  const { data } = useContext(DataBankContext);
+
   const questions: Array<AutocompleteOption> = useMemo(
-    () => Data?.[props.section]?.qa.map((q, i) => ({ value: i, label: q.question })) ?? [],
-    [props.section]
+    () => data?.[props.section]?.qa.map((q, i) => ({ value: i, label: q.question })) ?? [],
+    [props.section, data]
   );
 
   const currentQuestion: AutocompleteOption = useMemo(
-    () => questions.find((q) => q.value === props.question) ?? { value: -1, label: "" },
+    () => questions.find((q) => q.value === props.question) ?? { value: 0, label: "" },
     [props.question, questions]
   );
 
   const handleChange = (_: React.SyntheticEvent, newValue: AutocompleteOption | null): void => {
-    props.onQuestionChange(newValue?.value ?? -1);
+    props.onQuestionChange(newValue?.value ?? 0);
   };
 
   return (

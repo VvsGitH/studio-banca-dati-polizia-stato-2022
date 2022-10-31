@@ -1,5 +1,6 @@
 import { FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from "@mui/material";
-import { Sections } from "../../constants";
+import { useContext } from "react";
+import { DataBankContext } from "../../context/data-bank.context";
 
 interface SectionSelectorComponentProps {
   section: number;
@@ -7,6 +8,8 @@ interface SectionSelectorComponentProps {
 }
 
 export default function SectionSelectorComponent(props: SectionSelectorComponentProps): JSX.Element {
+  const { sections } = useContext(DataBankContext);
+
   const handleChange = (event: SelectChangeEvent): void => {
     props.onSectionChange(parseInt(event.target.value));
   };
@@ -17,12 +20,14 @@ export default function SectionSelectorComponent(props: SectionSelectorComponent
       <Select
         labelId="questions-section-selector"
         id="select-section"
-        value={String(props.section)}
+        value={sections.length ? String(props.section) : ""}
         label="Scegli una sezione"
         onChange={handleChange}
       >
-        {Sections.map((section, index) => (
-          <MenuItem key={section} value={index}>{section}</MenuItem>
+        {sections.map((section, index) => (
+          <MenuItem key={section} value={index}>
+            {section}
+          </MenuItem>
         ))}
       </Select>
     </FormControl>
