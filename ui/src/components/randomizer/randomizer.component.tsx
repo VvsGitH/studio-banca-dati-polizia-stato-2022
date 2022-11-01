@@ -40,7 +40,7 @@ export default function RandomizerComponent(): JSX.Element {
   };
 
   return (
-    <Box component="main" py="3rem">
+    <Box py="3rem">
       <form onSubmit={(e) => e.preventDefault()}>
         <Container maxWidth="lg">
           <Fieldset legend="Seleziona una domanda">

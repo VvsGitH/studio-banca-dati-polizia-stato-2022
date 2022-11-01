@@ -2,7 +2,7 @@ import AppBar from "@mui/material/AppBar";
 import Typography from "@mui/material/Typography";
 import SchoolIcon from "@mui/icons-material/School";
 
-export default function HeaderComponent(): JSX.Element {
+export default function Header(): JSX.Element {
   return (
     <AppBar
       position="static"
@@ -14,7 +14,7 @@ export default function HeaderComponent(): JSX.Element {
         flexWrap: "wrap",
         gap: "2rem",
         paddingBlock: "1rem",
-        paddingInline: "min(1rem, 5vw)"
+        paddingInline: "min(1rem, 5vw)",
       }}
       role="banner"
     >

@@ -1,6 +1,6 @@
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Footer from "./components/design/footer/footer.component";
-import HeaderComponent from "./components/design/header/header.component";
+import Header from "./components/design/header/header.component";
 import RandomizerComponent from "./components/randomizer/randomizer.component";
 import { DataBankContextProvider } from "./context/data-bank.context";
 
@@ -28,12 +28,12 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="app-layout">
-        <HeaderComponent />
-        <div className="content-layout">
+        <Header />
+        <main className="content-layout">
           <DataBankContextProvider>
             <RandomizerComponent />
           </DataBankContextProvider>
-        </div>
+        </main>
         <Footer />
       </div>
     </ThemeProvider>
