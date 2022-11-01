@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { DataBank } from "../models";
+import FullPageLoader from "../components/design/full-page-loader/full-page-loader.component";
 
 interface DataBankContext {
   data: DataBank | null;
@@ -13,7 +14,7 @@ export function DataBankContextProvider(props: { children: React.ReactNode }): J
 
   useEffect(() => {
     let isCanceled: boolean = false;
-    // Loading the asset dynamically to allow Vite to split the chunks and to have a bettere time to start
+    // Loading the asset dynamically to allow Vite to split the chunks and to have a better time to start
     import("../assets/banca_dati.json").then((module: { default: DataBank }) => {
       if (!isCanceled) {
         setContext({
@@ -27,5 +28,10 @@ export function DataBankContextProvider(props: { children: React.ReactNode }): J
     };
   }, []);
 
-  return <DataBankContext.Provider value={context}>{props.children}</DataBankContext.Provider>;
+  return (
+    <DataBankContext.Provider value={context}>
+      {props.children}
+      <FullPageLoader show={!context.data} />
+    </DataBankContext.Provider>
+  );
 }
