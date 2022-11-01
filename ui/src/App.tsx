@@ -20,7 +20,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "Poppins, Roboto, Helvetica, sans-serif",
+    fontFamily: "'Atkinson Hyperlegible', Helvetica, sans-serif",
   },
 });
 
