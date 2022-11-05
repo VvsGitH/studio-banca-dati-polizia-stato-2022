@@ -7,16 +7,16 @@ import { DataBankContextProvider } from "./context/data-bank.context";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#26a69a",
-      light: "#51b7ae",
-      dark: "#1a746b",
-      contrastText: "#fff",
+      main: "#00857E",
+      light: "#339D97",
+      dark: "#005D58",
+      contrastText: "#FFFFFF",
     },
     secondary: {
-      main: "#ab47bc",
-      light: "#bb6bc9",
-      dark: "#773183",
-      contrastText: "#fff",
+      main: "#AD2FDA",
+      light: "#BD58E1",
+      dark: "#792098",
+      contrastText: "#FFFFFF",
     },
   },
   typography: {
