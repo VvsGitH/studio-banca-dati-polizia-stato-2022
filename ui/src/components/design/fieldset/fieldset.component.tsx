@@ -9,20 +9,22 @@ export default function Fieldset(props: { legend?: string; children: React.React
       id={id}
       aria-labelledby={id + "-legend"}
       elevation={3}
-      component="fieldset"
+      component="div"
       sx={{
         border: "none",
         padding: "2rem",
       }}
     >
-      {props.legend ? (
-        <Typography component="h2" variant="h5" align="center" id={id + "-legend"}>
-          {props.legend}
-        </Typography>
-      ) : null}
+      <Box component="fieldset" border="none" m="0" p="0">
+        <Box component="legend" textAlign="center">
+          {props.legend ? (
+            <Typography component="h2" variant="h5" align="center" id={id + "-legend"}>
+              {props.legend}
+            </Typography>
+          ) : null}
+        </Box>
 
-      <Box mt="2rem">
-        {props.children}
+        <Box mt="2rem">{props.children}</Box>
       </Box>
     </Paper>
   );
