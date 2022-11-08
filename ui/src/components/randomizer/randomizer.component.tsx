@@ -1,4 +1,4 @@
-import { useContext, useMemo, useState } from "react";
+import { useCallback, useContext, useMemo, useState } from "react";
 
 import { Container, Box } from "@mui/material";
 
@@ -15,6 +15,11 @@ export default function RandomizerComponent(): JSX.Element {
 
   const question = useMemo(() => data?.[section].qa[questionId] ?? null, [data, section, questionId]);
 
+  const handleSelection = useCallback((newSection: number | null, newQuestionId: number | null) => {
+    newSection != null && setSection(newSection);
+    newQuestionId != null && setQuestionId(newQuestionId);
+  }, []);
+
   return (
     <Box py="3rem">
       <form onSubmit={(e) => e.preventDefault()}>
@@ -23,8 +28,7 @@ export default function RandomizerComponent(): JSX.Element {
             <QuestionsNavigationComponent
               section={section}
               questionId={questionId}
-              onSectionChange={setSection}
-              onQuestionChange={setQuestionId}
+              onSelection={handleSelection}
             />
           </Fieldset>
           <br />

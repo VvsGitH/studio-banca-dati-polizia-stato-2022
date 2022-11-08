@@ -10,9 +10,8 @@ import SectionSelectorComponent from "./section-selector.component";
 
 interface QuestionsNavigationComponentProps {
   section: number;
-  onSectionChange: (newSection: number) => void;
   questionId: number;
-  onQuestionChange: (newQuestionId: number) => void;
+  onSelection: (newSection: number | null, newQuestionId: number | null) => void;
 }
 
 function randomQuestion(): number {
@@ -22,17 +21,16 @@ function randomQuestion(): number {
 export default function QuestionsNavigationComponent(props: QuestionsNavigationComponentProps): JSX.Element {
   const handleSectionChange = useCallback(
     (newSection: number) => {
-      props.onSectionChange(newSection);
-      props.onQuestionChange(0);
+      props.onSelection(newSection, 0);
     },
-    [props.onSectionChange, props.onQuestionChange]
+    [props.onSelection]
   );
 
   const choseSpecificQuestion = useCallback(
     (newQuestion: number) => {
-      props.onQuestionChange(newQuestion);
+      props.onSelection(null, newQuestion);
     },
-    [props.onQuestionChange]
+    [props.onSelection]
   );
 
   return (
