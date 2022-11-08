@@ -50,7 +50,7 @@ export default function AnswersComponent(props: AnswersComponentProps): JSX.Elem
     >
       {shuffledAnswers.map((answer, index) => (
         <FormControlLabel
-          key={answer.label}
+          key={`${index}-${answer.label}`}
           value={answer.label}
           control={<Radio />}
           label={getHeaderBaseOnIndex(index) + answer.label}
