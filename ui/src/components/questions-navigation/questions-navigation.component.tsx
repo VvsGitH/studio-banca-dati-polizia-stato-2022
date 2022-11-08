@@ -5,8 +5,8 @@ import PrevIcon from "@mui/icons-material/NavigateBefore";
 import NextIcon from "@mui/icons-material/NavigateNext";
 import ShuffleIcon from "@mui/icons-material/Shuffle";
 
-import QuestionSelectorComponent from "../randomizer/question-selector.component";
-import SectionSelectorComponent from "../randomizer/section-selector.component";
+import QuestionSelectorComponent from "./question-selector.component";
+import SectionSelectorComponent from "./section-selector.component";
 
 interface QuestionsNavigationComponentProps {
   section: number;
